@@ -1,0 +1,37 @@
+<--!
+Recall any string from Middleware rack
+Easiest way is to set a writing project with set hashtags, then set this as a string from which to recall form entries.
+Once you have saved IP addresses and associated info on status, path method etc
+-->
+
+requests = [{"method": "GET," "url": "/tasks/1.json."], ["method": "GET", "url": "/tasks/2.json]}
+localhost: 3000/batch
+
+
+def call (env)
+if env ["PATH_INFO"] = "/batch"
+env ["REQUEST_METHOD"] = "GET"
+env ["PATH_INFO"] = "/tasks.json"
+env ["QUERY_STRING"]
+env ["rack.input."] = StringIO.new(" ")
+status, headers, body = @app.call (env)
+body.close
+response = [status:status, headers: headers, body: body]
+
+[200, {"Content-Type" = > "application/json"],
+[{responses: responses: responses}to_json]]
+*else*
+@app.call (env)
+
+def process_request (env, override)
+path, query = override ["url"].split ["?"]
+env ["REQUEST_METHOD"]=override["method"]
+env ["PATH_INFO"] = path
+env ["QUERY_STRING"] = query
+env ["rack.input"]=stringIO.new (override["method"]
+status, headers, body= @app.call (env) to ____s)
+body.dose if respond_to?:close
+[status:status; header: headers, body:body]
+
+<--!
+Create To-Do list and let us assume task is set by client and plugged into interface.
